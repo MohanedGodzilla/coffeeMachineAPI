@@ -1,0 +1,26 @@
+{
+  "name": "coffee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/MohanedGodzilla/GitTest.git"
+  },
+  "author": "Muhannad Ibrahim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohanedGodzilla/GitTest/issues"
+  },
+  "homepage": "https://github.com/MohanedGodzilla/GitTest#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15"
+  }
+}
