@@ -5,9 +5,13 @@ const mongoose = require('mongoose');
 // .catch(err => console.error('could not connect to DB', err));
 
 const machineSchema = new mongoose.Schema({
-    product_type: String,
-    name: String,
-    water_line_compatible: Boolean,
+    name: {type: String, required: true},
+    product_type: {
+        type: String,
+        enum: ['COFFEE_MACHINE_LARGE', 'COFFEE_MACHINE_SMALL', 'ESPRESSO_MACHINE'],
+        required: true
+    },
+    water_line_compatible: {type: Boolean, required: true},
 },{ collection: 'Coffee Machines'});
 
 const Coffee_Machine = mongoose.model('Coffee Machines', machineSchema);

@@ -1,15 +1,19 @@
 const dotenv = require('dotenv')
-const mongoose = require('mongoose');
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+const db = require('./src/db')
 const machine = require('./src/routes/machine')
 const pod = require('./src/routes/pods')
 dotenv.config()
 
-mongoose.connect(process.env.MONGO_URI,{
-    useNewUrlParser: true
-}).then(() => console.log('DB connected'))
-.catch(err => console.error('could not connect to DB', err));
+async function main() {
+    try {
+        await db(process.env.MONGO_URI);
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
+}
 
 app.use(express.json())
 app.use('/api/coffeeMachine',machine)
@@ -19,3 +23,5 @@ const port = process.env.PORT
 app.listen(port , ()=>{
     console.log(`nodejs api is listening on port: ${port}`);
 });
+
+main();
