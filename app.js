@@ -2,8 +2,8 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const machine = require('./routes/machine')
-const pod = require('./routes/pods')
+const machine = require('./src/routes/machine')
+const pod = require('./src/routes/pods')
 dotenv.config()
 
 mongoose.connect(process.env.MONGO_URI,{
