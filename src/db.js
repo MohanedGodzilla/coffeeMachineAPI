@@ -7,4 +7,6 @@ module.exports = async (URI) => {
         useNewUrlParser: true
     }).then(() => console.log('DB connected'))
     .catch(err => console.error('could not connect to DB', err));
-}
+};
+
+module.exports.dropDatabase = () => mongoose.connection.db.dropDatabase();
